@@ -20,7 +20,7 @@ RSpec.describe Product, type: :model do
       @category = Category.new
       @product.category = @category
       expect(@product).to_not be_valid
-      expect(@product.errors.full_messages).to eq ["Price cents is not a number", "Price is not a number","Price can't be blank"]
+      expect(@product.errors.full_messages).to eq ["Price cents is not a number", "Price is not a number", "Price can't be blank"]
     end
     it 'fails when quantity is nil' do
       @product = Product.new
