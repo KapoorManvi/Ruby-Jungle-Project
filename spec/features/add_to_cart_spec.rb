@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "ProductDetails", type: :feature, js: true do
+RSpec.feature "AddToCarts", type: :feature, js: true do
   
   
   # SETUP
@@ -17,15 +17,16 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
       )
     end
   end
-
-  scenario "They can navigate to the product detail page from the home page" do
+  
+  scenario "They can add a product to the cart" do
     visit root_path
 
-    first(".pull-right").click
+    first(:button, 'Add').click
 
     # commented out b/c it's for debugging only
     # save_and_open_screenshot
     
-    expect(page).to have_css 'article.product-detail'
+    expect(page).to have_content("My Cart (1)")
+
   end
 end
